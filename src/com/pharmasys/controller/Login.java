@@ -24,4 +24,13 @@ public class Login {
 		mv.setViewName("home");
 		return mv;
 	}
+	
+	@RequestMapping("/register")
+	public ModelAndView register(HttpServletRequest req,HttpServletResponse res) {
+		ModelAndView mv=new ModelAndView();
+		User u=AppBeanFactory.getUser();
+		System.out.println("Register Page");
+		mv.setViewName("register");
+		return mv;
+	}
 }
