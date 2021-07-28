@@ -4,20 +4,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.pharmasys.beans.abstrct.IUser;
-import com.pharmasys.dao.UserDAO;
+import com.pharmasys.dao.abstrct.IUserDAO;
 import com.pharmasys.service.abstrct.IUserService;
 
 @Component
 public class UserService implements IUserService{
 
 	@Autowired
-	private UserDAO userDao;
+	private IUserDAO userDao;
 
-	public UserDAO getUserDao() {
+	public IUserDAO getUserDao() {
 		return userDao;
 	}
 
-	public void setUserDao(UserDAO userDao) {
+	public void setUserDao(IUserDAO userDao) {
 		this.userDao = userDao;
 	}
 	

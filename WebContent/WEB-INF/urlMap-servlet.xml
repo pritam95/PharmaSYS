@@ -13,7 +13,7 @@
 
 	<mvc:annotation-driven />
 	<context:component-scan
-		base-package="com.pharmasys" />
+		base-package="com.pharmasys.controller" />
 	<mvc:default-servlet-handler />
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">

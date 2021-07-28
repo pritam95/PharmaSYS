@@ -2,14 +2,38 @@
 <beans xmlns = "http://www.springframework.org/schema/beans"
    xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
    xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:tx="http://www.springframework.org/schema/tx"
    xsi:schemaLocation="
 	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
 	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 
+  
+  <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">  
+        <property name="driverClassName"  value="com.mysql.cj.jdbc.Driver"></property>  
+        <property name="url" value="jdbc:mysql://localhost:3306/PharmaSYSDB?useSSL=false"></property>  
+        <property name="username" value="root"></property>  
+        <property name="password" value="password"></property>  
+  </bean>  
+  <bean id="sessionFactory" 
+      class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+      <property name="dataSource" ref="dataSource"></property>
+      <property name="configLocation">
+            <value>/resource/hibernate.cfg.xml</value>
+      </property>
+  </bean>
+  <bean class="org.springframework.orm.hibernate5.HibernateTemplate">
+	  <property name="sessionFactory" ref="sessionFactory"></property>  
+  </bean> 
+  
+  <tx:annotation-driven />
+   <bean id="transactionManager"
+       class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+       <property name="sessionFactory" ref="sessionFactory"></property>
+   </bean>
+      
   <context:component-scan base-package="com.pharmasys.beans"></context:component-scan>
   <context:component-scan base-package="com.pharmasys.service"></context:component-scan>
   <context:component-scan base-package="com.pharmasys.dao"></context:component-scan>
-  
 </beans>
