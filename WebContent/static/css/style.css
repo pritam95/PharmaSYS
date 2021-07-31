@@ -155,6 +155,101 @@ input[type="submit"]:hover{
 	text-decoration:none;
 }
 
+.title{
+	padding-top:5%;
+	font-size:25px;
+	font-family:bignoodletitling;
+	text-decoration:underline;
+	
+}
+.wrapper_1{
+	max-width:500px;
+	width:100%;
+	background:#fff;
+	margin :20px auto;
+	padding :30px;
+	box-shadow:1px 1px 2px rgba(0,0,0,0.125);
+}
+.wrapper_1 .title{
+	font-size: 24px;
+	font-wight: 700;
+	margin-bottom:25px;
+	color:#fec107;
+	text-transform: uppercase;
+	text-align: center;
+}
+.wrapper_1 .form{
+	width: 100%;
+}
+
+.wrapper_1 .form .input_field{
+	margin-bottm:15px;
+	display: flex;
+	align-items:center;
+}
+
+.wrapper_1 .form .input_field label{
+	width: 200px;
+	color:#757575; 
+	margin-right: 10px;
+	font-size: 14px;
+	
+}
+
+.wrapper_1 .form .input_field .input,
+.wrapper_1 .form .input_field .textarea{
+	width: 50%;
+	outline: none;
+	border:1px solid #d5dbd9;
+	font-size: 15px;
+	padding: 8px 10px;
+	border-radius: 3px;
+	transition: all 0.3s ease;
+} 
+
+.wrapper_1 .form .input_field .textarea{
+	resize:none;
+	height:100px;
+}
+
+.wrapper_1 .form .input_field .custom_select{
+	position: relative;
+	width: 50%;
+	height:37px;
+}
+.wrapper_1 .form .input_field .custom_select select{
+	-webkit-appearance: none;
+	appearance:none;
+	border: 1px solid #d5dbd9;
+	width: 100%;
+    height:50%;
+    border-radius: 3px;
+	
+	
+}
+
+.wrapper_1 .form .input_field .custom_select select:before{
+	content:"";
+	position:absolute;
+	
+	border:8px solid;
+	border-color: #d5dbd9;
+	pointer-events:none;
+}
+
+.wrapper_1 .form .input_field .input:focus,
+.wrapper_1 .form .input_field .textarea:focus,
+.wrapper_1 .form .input_field  select:focus{
+	border : 1px solid #fec107;
+}
+
+.wrapper_1 .form .input_field_submit{
+	position: center;
+}
+
+
+
+
 
 
 
