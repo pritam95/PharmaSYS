@@ -20,6 +20,7 @@ public class Login {
 	@RequestMapping("/")
 	public ModelAndView home(HttpServletRequest req,HttpServletResponse res) {
 		ModelAndView mv=new ModelAndView();
+		System.out.println("home Page");
 		mv.setViewName("home");
 		return mv;
 	}

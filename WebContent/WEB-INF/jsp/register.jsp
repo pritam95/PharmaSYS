@@ -7,25 +7,84 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form  method="POST" action="" onsubmit="return doRegistration()" autocomplete="off" >
-<div class ="txt_field">
-    <input type="text" id="fName" name="fName" placeholder="First Name" maxlength="30" required /><br>
-    <input type="text" id ="lName" name="lName" placeholder="Last Name" maxlength="30" required /><br>
-    Gender</br>
-    <input type="radio" id="male" name="gender" value="M" required ><label >Male</label>
-    <input type="radio" id="female" name="gender" value="F"><label >Female</label>
-    <input type="radio" id="other" name="gender" value="O"><label >Other</label><br>
-    <input type="text" id="dob" name="dob" placeholder="D.O.B" required /><br>
-    <textarea  id="address" name="address" placeholder="Address" maxlength="200" required ></textarea> <br>
-    <input type="text" id="state" name="state" placeholder="State" maxlength="30" required /><br>
-    <input type="text" id="pinNo" name="pinNo" placeholder="Pin No" maxlength="10" required /><br>
-    <input type="text" id="phoneNo" name="phoneNo" placeholder="Phone No"  required /><br>
-    <input type="email" id ="email" name="email" placeholder="Email" maxlength="50" required /><br>
-    <input type="password" id ="password" name="password" placeholder="Password" required /><br>
-    <input type="password" id ="cnfrmPassword" name="cnfrmPassword" placeholder="Confirm Password" required /><br>
-    <input type="submit" value="Register" /><br>
-    </div>
-</form>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/style.css"> 
+	<form method="POST" action="" onsubmit="return doRegistration()"
+		autocomplete="off">
+		<div class="wrapper_1">
+			<div class="title">Registration Form</div>
+			<div class="form">
+				<div class="input_field">
+					<label>First Name </label> <input type="text" class="input"
+						required>
+				</div>
+				<div class="input_field">
+					<label>Last Name </label> <input type="text" class="input" required>
+				</div>
+				<div class="input_field">
+					<label>Gender</label>
+					<div class="custom_select">
+						<select>
+							<option value="">Select</option>
+							<option value="male">Male</option>
+							<option value="female">Female</option>
+							<option value="female">Other</option>
+						</select>
+					</div>
+				</div>
+				<div class="input_field">
+					<label>D.O.B </label> <input type="text" class="input" required>
+				</div>
+				<div class="input_field">
+					<label>Address </label>
+					<textarea class="textarea" required></textarea>
+				</div>
+				<div class="input_field">
+					<label>State </label> <input type="text" class="input" required>
+				</div>
+				<div class="input_field">
+					<label>PIN No </label> <input type="text" class="input" required>
+				</div>
+				<div class="input_field">
+					<label>Phone No </label> <input type="text" class="input" required>
+				</div>
+				
+				<div class="input_field">
+					<label>Emergency No </label> <input type="text" class="input" required>
+				</div>
+				<div class="input_field">
+					<label>Email Id </label> <input type="text" class="input" required>
+				</div>
+				
+				<div class="input_field">
+					<label>User Acces</label>
+					<div class="custom_select">
+						<select>
+							<option value="">Select</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="input_field">
+					<label>Password </label> <input type="password" class="input"
+						required>
+				</div>
+
+				<div class="input_field">
+					<label>Confirm Password </label> <input type="text" class="input"
+						required>
+				</div>
+				<div class="input_field terms">
+					<label class="check"> <input type="checkbox"> <span
+						class="checkmark"></span>
+					</label>
+					<p>Agreed to terms and conditions</p>
+				</div>
+				<div class ="input_field_submit">
+					<input type="submit" value="Register" class ="btn">
+				</div>
+
+			</div>
+		</div>
+	</form>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/style.css"> 
 </body>
 </html>

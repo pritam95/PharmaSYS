@@ -23,8 +23,8 @@
 	<a href = "#">Contact</a>
 	</nav>
 	</div>
-	</div>
 	</header>
+	</div>
 	<div class ="banner-area">
 	<h1>Login</h1>
 	<form method ="post">
