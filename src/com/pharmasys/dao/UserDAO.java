@@ -1,5 +1,7 @@
 package com.pharmasys.dao;
 
+import java.util.Date;
+
 import javax.transaction.Transactional;
 
 import org.hibernate.FlushMode;
@@ -37,6 +39,10 @@ public class UserDAO implements IUserDAO{
 	    Transaction tx=session.beginTransaction();
 	    session.save(u);
 	    tx.commit();*/
+		
+		Date curDate=new Date();
+		
+		u.setCreated_on(curDate);
 		
 		hibernateTemplate.getSessionFactory().getCurrentSession().setHibernateFlushMode(FlushMode.AUTO);
 		

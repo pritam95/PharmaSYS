@@ -39,7 +39,7 @@
 	<div class ="pass">Forgot Password</div>
 	<input type="submit" value ="Login">
 	<div class ="signup_link">
-	Not a member? <a href ="${pageContext.request.contextPath}/register">SignUp</a>
+	Not a member? <a href ="${pageContext.request.contextPath}/registrationForm">SignUp</a>
 	</div>
 	</form>
 	

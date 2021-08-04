@@ -15,6 +15,10 @@
 	<context:component-scan
 		base-package="com.pharmasys.controller" />
 	<mvc:default-servlet-handler />
+	<mvc:cors>
+	<mvc:mapping path="/**"
+		allowed-origins="*"/>
+	</mvc:cors>
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass"
