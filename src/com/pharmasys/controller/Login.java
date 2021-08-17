@@ -2,6 +2,7 @@ package com.pharmasys.controller;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,10 +15,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pharmasys.beans.User;
+import com.pharmasys.beans.abstrct.IRole;
 import com.pharmasys.beans.abstrct.IUser;
+import com.pharmasys.service.abstrct.IRoleService;
 import com.pharmasys.service.abstrct.IUserService;
 import com.pharmasys.util.AppBeanFactory;
 import com.pharmasys.util.AppDateUtil;
+import com.pharmasys.util.to.TransferObject;
 
 @Controller
 public class Login {
@@ -34,6 +38,15 @@ public class Login {
 	public ModelAndView registrationForm(HttpServletRequest req,HttpServletResponse res) {
 		ModelAndView mv=new ModelAndView();
 		System.out.println("Register Page");
+		List<IRole> allRoles = null;
+		IRoleService roleService = AppBeanFactory.getRoleService();
+		TransferObject<List<IRole>> output = roleService.getAllRoles();
+		if(output != null) {
+			allRoles = output.getObj();
+		}
+		if(allRoles != null) {
+			mv.addObject("roles", allRoles);
+		}
 		mv.setViewName("register");
 		return mv;
 	}
@@ -55,7 +68,7 @@ public class Login {
 		newUser.setEmail(req.getParameter(IUser.REQUEST_PARAM_email));
 		newUser.setPassword(req.getParameter(IUser.REQUEST_PARAM_password));
 		newUser.setActive_status("N");
-		newUser.setUser_access("5");
+		newUser.setUser_access(req.getParameter(IUser.REQUEST_PARAM_userAcces));
 		
 		IUserService uS=AppBeanFactory.getUserService();
 		uS.register(newUser);
