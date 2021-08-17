@@ -3,6 +3,7 @@ package com.pharmasys.util;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.pharmasys.constants.Config;
+import com.pharmasys.service.abstrct.IRoleService;
 import com.pharmasys.service.abstrct.IUserService;
 import com.pharmasys.beans.abstrct.IUser;
 
@@ -18,5 +19,10 @@ public class AppBeanFactory {
 	public static IUserService getUserService() {
 		IUserService userService=(IUserService)context.getBean("userService");
 		return userService;
+	}
+	
+	public static IRoleService getRoleService() {
+		IRoleService roleService=(IRoleService)context.getBean("roleService");
+		return roleService;
 	}
 }
