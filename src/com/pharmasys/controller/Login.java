@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
@@ -77,5 +78,27 @@ public class Login {
 		response.put("response", "success");
 		System.out.println(response);
 		return response.toString();
+	}
+	
+	@RequestMapping(value = "/doLogin", method = RequestMethod.POST)
+	public ModelAndView doLogin(HttpServletRequest req,HttpServletResponse res) {
+		ModelAndView mv=new ModelAndView();
+		IUser user=AppBeanFactory.getUser();
+		user.setPhone_no(req.getParameter(IUser.REQUEST_PARAM_phoneNo));
+		user.setPassword(req.getParameter(IUser.REQUEST_PARAM_password));
+		TransferObject<IUser> input = new TransferObject<IUser>();
+		input.setObj(user);
+		IUserService uS=AppBeanFactory.getUserService();
+		IUser userData = uS.doLogin(input).getObj();
+		if(userData != null) {
+			System.out.println(userData.getFirst_name());
+			mv.setViewName("apphome");
+			
+		}else {
+			mv.setViewName("home");
+			mv.addObject("response", "Invalid Phone No or Password");
+		}
+		
+		return mv;
 	}
 }
